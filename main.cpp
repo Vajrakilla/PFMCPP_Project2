@@ -15,17 +15,13 @@ video: Chapter 2 - Part 3
  
  
  1) Write down the names of the 6 major primitive types available in C++  here:
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-2) for each primitive type, write out 3 variable declarations inside the variableDeclaration() function on line 59.
+                                                                                1) int
+                                                                                2) char 
+                                                                                3) bool
+                                                                                4) float
+                                                                                5) double
+                                                                                6) void
+      2) for each primitive type, write out 3 variable declarations inside the variableDeclaration() function on line 59.
     a) give each variable declaration an initial value
         - just ignore wchar_t. you do not need to declare 3 variables of type 'wchar_t'
         - 'void' is a return type. you do not need to declare 3 variables of type 'void'.
@@ -65,9 +61,44 @@ void variableDeclarations()
     //example:
     int number = 2; //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
     
+    int sampleRate = 48000; // Hz
+    int bitDepth = 16; //bits
+    int fftWindowSize = 1024;
 
+    bool isOutputtingSound = false;
+    bool isGateOpen = true;
+    bool isCircuitBiased = true;
+
+    float songLength = 4.15f; // in minutes
+    float amplitude = 25.52f; // in DB
+    float wetDry = 55.75f; // in %
+
+    char mix = 'm';
+    char volume = 'v';
+    char pan = 'p';
+
+    double sidebandHarmonic = 8.61;
+    double circumference = 8.822885; // in inches
+    double cuttoffFrequency = 885.65656; // in Hz
     
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(
+        number, 
+        sampleRate, 
+        bitDepth, 
+        fftWindowSize,
+        isOutputtingSound, 
+        isGateOpen, 
+        isCircuitBiased,
+        songLength, 
+        amplitude, 
+        wetDry,
+        mix, 
+        volume, 
+        pan,
+        sidebandHarmonic, 
+        circumference, 
+        cuttoffFrequency
+    ); //passing each variable declared to the ignoreUnused() function
 }
 
 /*
@@ -84,43 +115,81 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
+double changeAmplitude(double currentAmplitudePercent = 12.87, double newAmplitudePercent = 88.97)
+{
+    ignoreUnused(currentAmplitudePercent, newAmplitudePercent);
+    return{};
+}
 
 /*
  2)
  */
-
+int numberOfAvailableInputs(bool isInputActive, int numKnownInputs = 5, int numberOfInputsInUse = 3)
+{
+    ignoreUnused(isInputActive, numKnownInputs, numberOfInputsInUse);
+    return{};
+}
 /*
  3)
  */
-
+void initilizeSynth(int oscillator1State = 0, int oscillator2State = 0, int filterState = 1, int initOutputVolumePercent = 50)
+{
+    ignoreUnused(oscillator1State, oscillator2State, filterState, initOutputVolumePercent);
+}
 /*
  4)
  */
-
+float fftPeakDetector(int fftWindowSize = 1024, int sampleRate = 48000)
+{
+    ignoreUnused(fftWindowSize, sampleRate);
+    return{};
+}
 /*
  5)
  */
-
+bool effectSelection (int effectType = 1, float dryWetPercent = 50.f, char filterType = 'a', char driveType = 'c', bool audioBus = false)
+{
+    ignoreUnused(effectType, dryWetPercent, filterType, driveType, audioBus);
+    return{};
+}
 /*
  6)
  */
-
+char distortionType(int pedalEmulationType = 3, bool cabinet = false, int cabinetType = 1)
+{
+    ignoreUnused(pedalEmulationType, cabinet, cabinetType);
+    return{};
+}
 /*
  7)
  */
-
+int findNumberOfAvaliableAudioInputs()
+{
+    return{};
+}
 /*
  8)
  */
-
+int selectAudioOutput(char channel = 'd', bool multipleOuts = false, bool outputType = false) // false output type indicates non-audio (i.e. digital)... If thats a thing
+{
+    ignoreUnused(channel, multipleOuts, outputType);
+    return{};
+}
 /*
  9)
  */
-
+double circumference(float radiusInInches = 8.75f)
+{
+    ignoreUnused(radiusInInches);
+    return{};
+}
 /*
  10)
  */
-
+void playSong(char songChoice = 'a', int instrumentChoice = 5, int numAccompanimentInstruments = 20)
+{
+    ignoreUnused(songChoice, instrumentChoice, numAccompanimentInstruments);
+}
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
@@ -140,26 +209,26 @@ int main()
     //example of calling that function, storing the value, and passing it to ignoreUnused at the end of main()
     auto carRented = rentACar(6, 2); 
     
-    //1)
-    
+    //1) 
+    auto newAmplitude = changeAmplitude(0, 99.9);
     //2)
-    
+    auto showAvailableInputs = numberOfAvailableInputs(true, 1, 2);
     //3)
-    
+    initilizeSynth(1,5,4,34);
     //4)
-    
+    auto peakDetect = fftPeakDetector(500, 24000);
     //5)
-    
+    auto effectType = effectSelection(5, 5.3f, 'd', 'z', false);
     //6)
-    
+    auto distortion = distortionType(5, true, 2);
     //7)
-    
+    auto numAudioIns = findNumberOfAvaliableAudioInputs();
     //8)
-    
+    auto audioOutTo = selectAudioOutput('a', true, true);
     //9)
-    
+    auto getCircumference = circumference(.1123f);
     //10)
-    
+    playSong('j', 4, 15);
     
     ignoreUnused(carRented);
     std::cout << "good to go!" << std::endl;
