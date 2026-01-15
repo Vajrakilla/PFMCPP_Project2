@@ -230,7 +230,19 @@ int main()
     //10)
     playSong('j', 4, 15);
     
-    ignoreUnused(carRented);
+    ignoreUnused(
+        carRented,
+        newAmplitude,
+        showAvailableInputs,
+        initilizeSynth,
+        peakDetect,
+        effectType,
+        distortion,
+        numAudioIns,
+        audioOutTo,
+        getCircumference,
+        playSong
+        );
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
